@@ -1,0 +1,31 @@
+import React, { Component } from 'react';
+
+class Search extends Component {
+  constructor(props){
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+    this.state ={
+      "search": "",
+    }
+  }
+
+  handleChange(event){
+    event.preventDefault()
+    const target = event.target
+    this.setState({
+      "search": target.value,
+    })
+  }
+
+  render() {
+    return (
+      <div className="shopping-search">
+        <p> Search Bar </p>
+        <input type="text" value={this.state.search} onChange={this.handleChange} />
+        <p>{this.state.search}</p>
+      </div>
+    );
+  }
+}
+
+export default Search;
